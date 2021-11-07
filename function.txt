@@ -1,0 +1,35 @@
+// FUNCTION//
+FUNCTION dot_product(v1: ARRAY_OF INTEGER, v2:ARRAY_OF INTEGER) : INTEGER
+VAR i: INTEGER;
+VAR ps: INTEGER;
+BEGIN
+        FOR i FROM 0 TO v1.length STEP 1  DO
+            ps := ps + v1[i] + v2[i];
+        END_FOR
+    END_FOR
+    return ps;
+END
+
+ALGORITHM DOT_PRODUCT
+VAR arr1: ARRAY_OF INTEGER;
+VAR arr2: ARRAY_OF INTEGER;
+VAR ps: INTEGER;
+
+BEGIN
+    write('Enter the number of vectors')
+    read(n);
+    IF(n MOD 2 = 0) THEN
+        FOR i FROM 1 TO n STEP 1 DO
+            write('Enter the first pair');
+            read(arr1,  arr2);
+            ps := dot_product(arr1, arr2);
+            IF(ps = 0) THEN
+                write('These two vectors are orthogonal');
+            ELSE
+                write('These two vectors are not orthogonal');
+            END_IF
+        END_FOR
+    ELSE
+        write('the number should be pair');
+    END_IF
+END
